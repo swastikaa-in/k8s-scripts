@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config-map-config-service
+data:
+  city: paris
+  name: sonia 

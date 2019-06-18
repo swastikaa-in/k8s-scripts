@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: multikeys-configmap
+  namespace: default
+data:
+  SPECIAL_ACTRESS: Sharon Stone
+  SPECIAL_ACTOR: Nagesh

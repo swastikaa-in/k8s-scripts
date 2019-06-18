@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: myconfigmap
+  namespace: default
+data:
+  name: sridhar
+  city: salem
+  favorites: |-
+    sitcom="Allo Allo"
+    actress="Sharon Stone"

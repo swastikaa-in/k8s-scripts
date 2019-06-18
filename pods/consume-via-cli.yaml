@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: consume-via-cli
+spec:
+  containers:
+    - name: consuming-container
+      image: k8s.gcr.io/busybox
+      command: [ "/bin/sh", "-c", "echo $(MY_NAME); echo $(MY_FAVORITES); env" ]
+      env:
+        - name: MY_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: myconfigmap
+              key: name
+        - name: MY_FAVORITES
+          valueFrom:
+            configMapKeyRef:
+              name: myconfigmap
+              key: favorites
+  restartPolicy: Never

@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-using-configmap-env-variable-in-pod-commands
+spec:
+  containers:
+    - name: test-container
+      image: k8s.gcr.io/busybox
+      command: [ "/bin/sh", "-c", "echo $(SPECIAL_ACTRESS) $(SPECIAL_ACTOR)" ]
+      env:
+        - name: SPECIAL_ACTRESS
+          valueFrom:
+            configMapKeyRef:
+              name: multikeys-configmap
+              key: SPECIAL_ACTRESS
+        - name: SPECIAL_ACTOR
+          valueFrom:
+            configMapKeyRef:
+              name: multikeys-configmap
+              key: SPECIAL_ACTOR
+  restartPolicy: Never
